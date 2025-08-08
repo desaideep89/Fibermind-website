@@ -1,15 +1,19 @@
+// Ensure JS is detected (optional)
 document.documentElement.classList.add('js');
-// Drawer
+
+/* ===== Drawer menu ===== */
 const toggle = document.getElementById('menu-toggle');
 const drawer = document.getElementById('drawer');
 const closeBtn = document.getElementById('drawer-close');
 
 function openDrawer(){
+  if (!drawer) return;
   drawer.hidden = false;
   requestAnimationFrame(()=>drawer.classList.add('open'));
   toggle?.setAttribute('aria-expanded','true');
 }
 function closeDrawer(){
+  if (!drawer) return;
   drawer.classList.remove('open');
   toggle?.setAttribute('aria-expanded','false');
   setTimeout(()=>drawer.hidden = true, 150);
@@ -24,18 +28,16 @@ document.querySelectorAll('.drawer a[href^="#"]').forEach(a=>{
   a.addEventListener('click', ()=> closeDrawer());
 });
 
-// Stat counters
+/* ===== Stat counters (safe default) ===== */
 function formatCompact(n){
   if (n >= 1e9) return (n/1e9).toFixed(1).replace(/\.0$/,'') + 'b';
   if (n >= 1e6) return (n/1e6).toFixed(1).replace(/\.0$/,'') + 'm';
   if (n >= 1e3) return (n/1e3).toFixed(1).replace(/\.0$/,'') + 'k';
   return ''+Math.round(n);
 }
-const counters = document.querySelectorAll('[data-count]');
-const ioCounters = new IntersectionObserver(entries=>{
-  entries.forEach(entry=>{
-    if (!entry.isIntersecting) return;
-    const el = entry.target;
+function runCounters(){
+  const counters = document.querySelectorAll('[data-count]');
+  counters.forEach(el=>{
     const end = parseFloat(el.getAttribute('data-count'));
     const decimals = parseInt(el.getAttribute('data-decimals')||'0',10);
     const prefix = el.getAttribute('data-prefix')||'';
@@ -50,31 +52,11 @@ const ioCounters = new IntersectionObserver(entries=>{
       if (p < 1) requestAnimationFrame(tick);
     }
     requestAnimationFrame(tick);
-    ioCounters.unobserve(el);
   });
-},{threshold:0.6});
-counters.forEach(el=>ioCounters.observe(el));
-
-// Reveal on scroll
-const reveals = document.querySelectorAll('.reveal');
-const ioReveal = new IntersectionObserver(entries=>{
-  entries.forEach(e=>{
-    if (e.isIntersecting) {
-      e.target.classList.add('show');
-      ioReveal.unobserve(e.target);
-    }
-  });
-},{threshold:0.2});
-reveals.forEach(el=>ioReveal.observe(el));
-
-if (!('IntersectionObserver' in window)) {
-  document.querySelectorAll('.reveal').forEach(el => el.classList.add('show'));
 }
+window.addEventListener('load', runCounters);
 
-// Parallax
-const parallax = document.querySelectorAll('[data-parallax]');
-window.addEventListener('scroll', ()=>{
-  const y = window.scrollY;
-  parallax.forEach(el=>{
-    const r = el.getBoundingClientRect();
-    const offset
+/* ===== Reveal & Parallax — DISABLED for now =====
+   If you want to re-enable later, use IntersectionObserver
+   but DO NOT set opacity:0 as default.
+*/
