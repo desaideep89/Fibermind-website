@@ -1,3 +1,4 @@
+document.documentElement.classList.add('js');
 // Drawer
 const toggle = document.getElementById('menu-toggle');
 const drawer = document.getElementById('drawer');
