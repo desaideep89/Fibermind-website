@@ -1,149 +1,161 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>FiberMind</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>FiberMind — Infrastructure Intelligence</title>
 
-  <!-- Cache-busted CSS and JS -->
-  <link rel="stylesheet" href="styles.css?v=3" />
-  <script defer src="script.js?v=3"></script>
+  <!-- Cache-busted CSS & JS -->
+  <link rel="stylesheet" href="styles.css?v=4" />
+  <script defer src="script.js?v=4"></script>
 
-  <!-- Fail-safe fallback -->
+  <!-- Fail-safe so page never renders blank without JS -->
   <noscript>
-    <style>
-      body {
-        background: #0A0C16;
-        color: #e8ecf8;
-        font-family: Arial, sans-serif;
-        padding: 20px;
-      }
-    </style>
-    <p>This site works best with JavaScript enabled. Please enable JavaScript in your browser.</p>
+    <style>body{background:#0A0C16;color:#E8ECF8;font-family:system-ui,Arial,sans-serif;padding:20px}</style>
+    <p>This site works best with JavaScript enabled.</p>
   </noscript>
 </head>
 <body>
-  <!-- Header -->
-  <header class="navbar">
-    <div class="logo">
-      <img src="logo.png" alt="FiberMind Logo" />
-      <span>FiberMind</span>
+  <!-- ===== Header: logo left, burger + Contact right ===== -->
+  <header class="header">
+    <div class="wrap header-row">
+      <a class="brand" href="#">
+        <img src="logo.png" alt="FiberMind logo" class="logo" />
+        <span class="site-name">FiberMind</span>
+      </a>
+      <div class="right-controls">
+        <button class="hamburger" id="menu-toggle" aria-label="Open menu" aria-expanded="false">
+          <img src="network-icon.svg" class="net-icon" alt="" />
+          <span></span><span></span><span></span>
+        </button>
+        <a class="btn btn-contact" href="contact.html">Contact</a>
+      </div>
     </div>
-    <nav class="nav-links">
-      <a href="#problem">Problem</a>
-      <a href="#why-now">Why now</a>
-      <a href="#solution">Solution</a>
-      <a href="#focus">Focus</a>
-      <a href="#team">Team</a>
-      <a href="#contact" class="contact-btn">Contact</a>
+
+    <!-- Slide-out drawer -->
+    <nav id="drawer" class="drawer" hidden>
+      <div class="drawer-head">
+        <span>Menu</span>
+        <button id="drawer-close" aria-label="Close">✕</button>
+      </div>
+      <a href="#problem" class="drawer-link">Problem</a>
+      <a href="#breakthrough" class="drawer-link">Breakthrough</a>
+      <a href="#industries" class="drawer-link">Industries</a>
+      <a href="#how-it-works" class="drawer-link">How it works</a>
+      <a href="#team" class="drawer-link">Team</a>
+      <a href="contact.html" class="btn drawer-cta">Contact</a>
     </nav>
-    <div class="burger-menu">
-      <span></span>
-      <span></span>
-      <span></span>
-    </div>
   </header>
 
-  <!-- Hero Section -->
-  <section class="hero">
-    <h1>Make the world's fiber intelligent</h1>
-    <p>
-      Turning billions of kilometers of cable into real-time awareness for rail,
-      oil and gas, and critical assets.
-    </p>
-    <div class="hero-buttons">
-      <a href="#focus" class="btn-primary">See the breakthrough</a>
-      <a href="#solution" class="btn-secondary">How it works</a>
+  <!-- ===== Hero (with animated strands) ===== -->
+  <section class="hero" id="top">
+    <div class="hero-bg">
+      <div class="strand s1"></div>
+      <div class="strand s2"></div>
+      <div class="strand s3"></div>
+      <div class="noise"></div>
     </div>
-    <div class="hero-stats">
-      <div>
-        <strong>4b+</strong>
-        <span>km fiber deployed</span>
+    <div class="hero-inner wrap">
+      <h1>Make the world’s fiber intelligent</h1>
+      <p class="lead">Turning billions of kilometers of cable into real-time awareness for rail, oil and gas, and critical assets.</p>
+      <div class="cta-row">
+        <a class="btn" href="#breakthrough">See the breakthrough</a>
+        <a class="btn ghost" href="#how-it-works">How it works</a>
       </div>
-      <div>
-        <strong>0.0005%</strong>
-        <span>used as sensors</span>
-      </div>
-      <div>
-        <strong>&gt;1 PB</strong>
-        <span>raw data per 1000 km</span>
+      <div class="stats">
+        <div><strong>4b+</strong><span>km fiber deployed</span></div>
+        <div><strong>0.0005%</strong><span>used as sensors</span></div>
+        <div><strong>&gt;1 PB</strong><span>raw data per 1000 km</span></div>
       </div>
     </div>
+    <button class="scroll-hint" aria-label="Scroll down" onclick="document.getElementById('problem').scrollIntoView({behavior:'smooth'})">↓</button>
   </section>
 
-  <!-- Problem Section -->
-  <section id="problem" class="problem">
-    <h2>Infrastructure is blind</h2>
-    <p>
-      Trillions invested yet networks cannot see intrusions, overheating, or ground shifts until after the fact.
-      Fiber is already in place but almost none of it is used for sensing.
-    </p>
-    <ul>
-      <li>Legacy stacks are hardware locked</li>
-      <li>Data volumes and labelling slow progress</li>
-      <li>Adoption growth remains under 6%</li>
-    </ul>
-  </section>
-
-  <!-- Breakthrough Section -->
-  <section id="solution" class="breakthrough">
-    <h2>The breakthrough</h2>
-    <p>
-      A Large Vibration Model that learns across fibers, terrains, and events.
-    </p>
-    <div class="breakthrough-flow">
-      <div>Fiber signals</div>
-      <div>FiberMind model</div>
-      <div>Events and Insights</div>
-    </div>
-    <div class="breakthrough-tags">
-      <span>Hardware agnostic</span>
-      <span>Faster training and labelling</span>
-      <span>Near zero false positives</span>
+  <!-- ===== Problem ===== -->
+  <section class="panel" id="problem" data-parallax>
+    <div class="wrap grid-2">
+      <div class="copy">
+        <h2>Infrastructure is blind</h2>
+        <p>Trillions invested yet networks cannot see intrusions, overheating, or ground shifts until after the fact. Fiber is already in place but almost none of it is used for sensing.</p>
+      </div>
+      <div class="card">
+        <ul class="checks">
+          <li>Legacy stacks are hardware locked</li>
+          <li>Data volumes and labelling slow progress</li>
+          <li>Adoption growth remains under 6 percent</li>
+        </ul>
+      </div>
     </div>
   </section>
 
-  <!-- Focus Section -->
-  <section id="focus" class="focus">
-    <div>
-      <h3>Rail</h3>
-      <p>Broken rail detection and corridor awareness</p>
-    </div>
-    <div>
-      <h3>Oil and gas</h3>
-      <p>Third party intrusion and leak detection</p>
-    </div>
-    <div>
-      <h3>Subsea</h3>
-      <p>Cable tamper and anchor drag</p>
+  <!-- ===== Breakthrough ===== -->
+  <section class="panel alt" id="breakthrough" data-parallax>
+    <div class="wrap">
+      <h2 class="center">The breakthrough</h2>
+      <p class="center muted">A Large Vibration Model that learns across fibers, terrains, and events</p>
+
+      <div class="flow">
+        <div class="node"><div class="icon ring"></div><span>Fiber signals</span></div>
+        <div class="arrow"></div>
+        <div class="node"><div class="icon brain"></div><span>FiberMind model</span></div>
+        <div class="arrow"></div>
+        <div class="node"><div class="icon outcomes"></div><span>Events and insights</span></div>
+      </div>
+
+      <div class="pill-row">
+        <span class="pill">Hardware agnostic</span>
+        <span class="pill">Faster training and labelling</span>
+        <span class="pill">Near zero false positives</span>
+      </div>
     </div>
   </section>
 
-  <!-- Deployment Benefits -->
-  <section class="deployment">
-    <div>
-      <h4>Deploy on what you have</h4>
-      <p>Drop-in intelligence on top of existing fiber. Keep your hardware and gain awareness.</p>
+  <!-- ===== Industries ===== -->
+  <section class="industries" id="industries">
+    <div class="industry rail" data-parallax>
+      <div class="overlay"><h3>Rail</h3><p>Broken rail detection and corridor awareness</p></div>
     </div>
-    <div>
-      <h4>Train once, scale everywhere</h4>
-      <p>Contextual learning across fibers and terrains reduces data burden and speeds time to value.</p>
+    <div class="industry oil" data-parallax>
+      <div class="overlay"><h3>Oil and gas</h3><p>Third party intrusion and leak detection</p></div>
     </div>
-  </section>
-
-  <!-- Team Section -->
-  <section id="team" class="team">
-    <h2>Team</h2>
-    <p>Decades across DFOS, applied AI, and live deployments in rail, energy, and defense.</p>
-    <div class="hiring">
-      <h4>We are hiring</h4>
-      <p>Researchers, forward deployment engineers, and product builders who care about outcomes.</p>
+    <div class="industry subsea" data-parallax>
+      <div class="overlay"><h3>Subsea</h3><p>Cable tamper and anchor drag</p></div>
     </div>
   </section>
 
-  <!-- Footer -->
-  <footer id="contact" class="footer">
-    <p>FiberMind — Cambridge — deep.desai@fibermind.ai — +971 566777884</p>
+  <!-- ===== How it works ===== -->
+  <section class="panel alt" id="how-it-works" data-parallax>
+    <div class="wrap grid-2">
+      <div class="card">
+        <h3>Deploy on what you have</h3>
+        <p>Drop-in intelligence on top of existing fiber. Keep your hardware and gain awareness.</p>
+      </div>
+      <div class="card">
+        <h3>Train once, scale everywhere</h3>
+        <p>Contextual learning across fibers and terrains reduces data burden and speeds time to value.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Team ===== -->
+  <section class="panel" id="team" data-parallax>
+    <div class="wrap grid-2">
+      <div class="copy">
+        <h2>Team</h2>
+        <p>Decades across DFOS, applied AI, and live deployments in rail, energy, and defense.</p>
+      </div>
+      <div class="card">
+        <h3>We are hiring</h3>
+        <p>Researchers, forward deployment engineers, and product builders who care about outcomes.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Footer ===== -->
+  <footer class="footer">
+    <div class="wrap">
+      <p>FiberMind — Cambridge • deep.desai@fibermind.ai • +971 566777884</p>
+    </div>
   </footer>
 </body>
 </html>
