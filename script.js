@@ -67,6 +67,10 @@ const ioReveal = new IntersectionObserver(entries=>{
 },{threshold:0.2});
 reveals.forEach(el=>ioReveal.observe(el));
 
+if (!('IntersectionObserver' in window)) {
+  document.querySelectorAll('.reveal').forEach(el => el.classList.add('show'));
+}
+
 // Parallax
 const parallax = document.querySelectorAll('[data-parallax]');
 window.addEventListener('scroll', ()=>{
