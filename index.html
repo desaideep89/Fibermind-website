@@ -3,11 +3,12 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>FiberMind</title>
+  <title>FiberMind — Infrastructure Intelligence</title>
   <link rel="stylesheet" href="styles.css" />
   <script defer src="script.js"></script>
 </head>
 <body>
+  <!-- ===== HEADER ===== -->
   <header class="header">
     <div class="logo-container">
       <img src="logo.png" alt="FiberMind Logo" class="logo" />
@@ -19,26 +20,165 @@
     </div>
     <nav class="nav-links" id="nav-links">
       <a href="#problem">Problem</a>
-      <a href="#whynow">Why now</a>
       <a href="#solution">Solution</a>
       <a href="#focus">Focus</a>
+      <a href="#why-now">Why now</a>
       <a href="#team">Team</a>
       <a href="contact.html">Contact</a>
     </nav>
   </header>
 
+  <!-- ===== HERO ===== -->
   <section class="hero">
-    <h1>Make the world's fiber intelligent</h1>
-    <p>We build the intelligence layer for fiber optic infrastructure. Our research reduces data needs and accelerates labelling so operators can detect broken rails, pipeline intrusions, and structural issues in real time. Fully hardware agnostic.</p>
-    <div class="cta-buttons">
-      <a href="#focus" class="btn-primary">See our first focus</a>
-      <a href="#howitworks" class="btn-secondary">How it works</a>
-    </div>
-    <div class="stats">
-      <div><strong>4b+ km</strong><br/>fiber deployed globally</div>
-      <div><strong>&lt;0.0005%</strong><br/>currently used for sensing</div>
-      <div><strong>&gt;1 PB</strong><br/>raw data per 1000 km</div>
+    <div class="container">
+      <h1>Make the world's fiber intelligent</h1>
+      <p>
+        We build the intelligence layer for fiber optic infrastructure. Our research
+        reduces data needs and accelerates labelling so operators can detect broken
+        rails, pipeline intrusions, and structural issues in real time. Fully hardware
+        agnostic.
+      </p>
+      <div class="cta-buttons">
+        <a href="#focus" class="btn-primary">See our first focus</a>
+        <a href="#solution" class="btn-secondary">How it works</a>
+      </div>
+      <div class="stats">
+        <div>
+          <strong>4b+ km</strong>
+          <span>fiber deployed globally</span>
+        </div>
+        <div>
+          <strong>&lt;0.0005%</strong>
+          <span>currently used for sensing</span>
+        </div>
+        <div>
+          <strong>&gt;1 PB</strong>
+          <span>raw data per 1000 km</span>
+        </div>
+      </div>
     </div>
   </section>
+
+  <!-- ===== PROBLEM ===== -->
+  <section id="problem" class="section">
+    <div class="wrap twocol">
+      <div>
+        <h2>Infrastructure is blind</h2>
+        <p>
+          Trillions invested yet networks cannot see intrusions, overheating, or ground
+          shifts until after the fact. Fiber is already in place but almost none of it is
+          used for sensing.
+        </p>
+      </div>
+      <div class="card">
+        <ul class="checks">
+          <li>Legacy stacks are hardware locked</li>
+          <li>Data volumes and labelling slow progress</li>
+          <li>Adoption growth remains under 6 percent</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SOLUTION ===== -->
+  <section id="solution" class="section alt">
+    <div class="wrap twocol">
+      <div>
+        <h2>Our approach</h2>
+        <p>
+          We are developing a Large Vibration Model that learns across fibers, terrains,
+          and events. It lowers data needs, improves accuracy, and keeps false positives
+          near zero with contextual understanding.
+        </p>
+        <ul class="checks">
+          <li>OEM agnostic models</li>
+          <li>Faster training and labelling</li>
+          <li>Real time detection and triage</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>What this enables</h3>
+        <p>
+          Deploy intelligence on top of existing fiber. Start with one corridor and
+          expand. Keep your hardware. Gain awareness today.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOCUS ===== -->
+  <section id="focus" class="section">
+    <div class="wrap twocol">
+      <div>
+        <h2>First focus: broken rail detection</h2>
+        <p>
+          Rail operators have searched for a reliable solution for decades. We target 50
+          percent true detection in year one with near zero false positives and a
+          deployment timeline measured in months.
+        </p>
+        <ul class="checks">
+          <li>Safety and service continuity</li>
+          <li>Lower maintenance costs</li>
+          <li>Clear path to revenue with one use case</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>For oil and gas</h3>
+        <p>
+          Detect third party intrusion and leaks along pipelines using the same
+          intelligence layer. One model. Multiple sectors.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== WHY NOW ===== -->
+  <section id="why-now" class="section alt">
+    <div class="wrap twocol">
+      <div>
+        <h2>Why now</h2>
+        <p>
+          Risk is rising while fiber penetration is already high. AI advances finally
+          allow learning from noisy high volume signals with far less data. Large vendors
+          are focused on hardware which leaves the intelligence gap open.
+        </p>
+      </div>
+      <div class="card">
+        <h3>What changes with FiberMind</h3>
+        <p>
+          Turn light pulses into awareness. Treat fiber as the nervous system for rail,
+          energy, and borders. Build once and scale across networks.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== TEAM ===== -->
+  <section id="team" class="section">
+    <div class="wrap twocol">
+      <div>
+        <h2>Team</h2>
+        <p>
+          We bring decades across DFOS, applied AI, and large scale deployments. We have
+          built and shipped systems in rail, energy, and defense, and know the path from
+          lab to live operations.
+        </p>
+      </div>
+      <div class="card">
+        <h3>We are hiring</h3>
+        <p>
+          Seeking researchers, forward deployment engineers, and product builders who
+          care about infrastructure and care about outcomes.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div class="wrap">
+      <p>FiberMind — Cambridge • deep.desai@fibermind.ai • +971 566777884</p>
+    </div>
+  </footer>
 </body>
 </html>
